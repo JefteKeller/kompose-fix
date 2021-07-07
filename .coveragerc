@@ -1,0 +1,6 @@
+[run]
+source = ./songs/
+
+[report]
+fail_under = 85
+show_missing = true
