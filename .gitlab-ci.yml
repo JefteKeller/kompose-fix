@@ -1,0 +1,32 @@
+image: python:3.9
+
+stages:
+    - testing
+    - deploy
+
+Django Tests:
+    stage: testing
+
+    before_script:
+        - python -V
+        - python -m pip install -r requirements.txt
+
+    variables:
+        TEST: "TEST"
+        DEBUG: "True"
+        SECRET_KEY: "django-insecure--%^o^f1ju^5(&48b%3whbs@pzh1*uk@8m7t!k5_+yi@b!uncx2"
+
+    script:
+        - coverage run -m manage test -v 3
+
+    only:
+        - merge_request
+
+Deploy Heroku:
+    stage: deploy
+
+    script:
+        - git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git HEAD:master
+
+    only:
+        - master
