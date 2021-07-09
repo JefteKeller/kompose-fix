@@ -25,8 +25,7 @@ Deploy Heroku:
     stage: deploy
 
     script:
-        - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git
-        - git push heroku HEAD:master
+        - git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git HEAD:master
 
     only:
         - master
