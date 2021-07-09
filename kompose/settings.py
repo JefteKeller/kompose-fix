@@ -15,10 +15,6 @@ import dj_database_url
 from pathlib import Path
 import os
 
-from dotenv import load_dotenv
-
-load_dotenv("/envs/dev.env")
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,7 +29,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG")
 
-ALLOWED_HOSTS = ["https://q-4-kompose.herokuapp.com/"]
+ALLOWED_HOSTS = ["q-4-kompose.herokuapp.com"]
 
 
 # Application definition
