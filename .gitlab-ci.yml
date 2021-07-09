@@ -14,6 +14,7 @@ Django Tests:
     variables:
         TEST: "TEST"
         DEBUG: "True"
+        SECRET_KEY: "django-insecure--%^o^f1ju^5(&48b%3whbs@pzh1*uk@8m7t!k5_+yi@b!uncx2"
 
     script:
         - coverage run -m manage test -v 3
@@ -25,8 +26,7 @@ Deploy Heroku:
     stage: deploy
 
     script:
-        - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git
-        - git push heroku HEAD:master
+        - git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git HEAD:master
 
     only:
         - master
