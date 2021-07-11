@@ -18,6 +18,7 @@ Django Tests:
 
     script:
         - coverage run -m manage test -v 3
+        - coverage report
 
     only:
         - merge_request
